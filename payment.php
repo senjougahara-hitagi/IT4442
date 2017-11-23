@@ -6,7 +6,8 @@
   </head>
   <body>
     <?php
-    // Biến $card để lưu trữ trạng thái khi người dùng chọn thanh toán bằng thẻ
+      session_start();
+      // Biến $card để lưu trữ trạng thái khi người dùng chọn thanh toán bằng thẻ
       $card = false;
       include("check.php");
       if($card == false)

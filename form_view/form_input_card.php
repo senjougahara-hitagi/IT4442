@@ -14,7 +14,7 @@
    <tr>
      <td>Tên ngân hàng:</td>
      <td>
-      <select name='bank_name'>
+      <select name='bank_name' required>
         <option value="">Chọn ngân hàng</option>
         <option value="Vietin">Vietin Bank</option>
         <option value="BIDV">BIDV Bank</option>
@@ -26,24 +26,24 @@
    <tr>
      <td width='180px' >Tên chủ thẻ:</td>
      <td>
-       <input type='text' style='width:400px' name='ten_chu_the' >
+       <input type='text' style='width:400px' name='ten_chu_the' required>
      </td>
    </tr>
    <tr>
      <td>Mã thẻ: </td>
      <td>
-       <input type='number' style='width:400px' name='ma_the' maxlength="16">
+       <input type='number' style='width:400px' name='ma_the' maxlength="16" required>
      </td>
    </tr>
    <tr>
      <td>Ngày phát hành: </td>
      <td>
-       <input type='date' style='width:400px' name='ngay_phat_hanh' >
+       <input type='date' style='width:400px' name='ngay_phat_hanh' required>
      </td>
    </tr>
  </table>
  <hr>
  <div align='center'>
-   <input align='center' type='submit' name='bank' value='Mua hàng' >
+   <input align='center' type='submit' name='bank' value='Mua hàng' required>
  </div>
 </form>

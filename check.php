@@ -1,47 +1,20 @@
 <!-- Check thông tin nhập vào -->
-
 <?php
   // Kiểm tra thông tin cá nhân khách hàng
   if(isset($_POST['Mua_hang'])){
     $error = false;
-    $name = $_POST['ten_nguoi_mua'];
     $email = $_POST['email'];
-    $dia_chi = $_POST['dia_chi'];
-    $dien_thoai = $_POST['dien_thoai'];
     $select_payment = null;
+
     if(isset($_POST['select_payment']))
       $select_payment = $_POST['select_payment'];
 
-    // Kiểm tra xem người dùng nhập tên không?
-    if($name == ''){
-      echo "<div align='center'>Tên khách hàng bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    }
-    // Kiểm tra xem người dùng nhập email không?
-    if($email == ''){
-      echo "<div align='center'>Email bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    } else {
-      // Kiểm tra cú pháp email đúng không?
+    // Kiểm tra cú pháp email đúng không?
+    if($email != ''){
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<div align='center'>Invalid email format!!!</div><br>";
         $error = true;
       }
-    }
-    // Kiểm tra xem người dùng nhập địa chỉ không?
-    if($dia_chi == ''){
-      echo "<div align='center'>Địa chỉ bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    }
-    // Kiểm tra xem người dùng nhập số điện thoại không?
-    if($dien_thoai == ''){
-      echo "<div align='center'>Số điện thoại bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    }
-    // Kiểm tra xem người dùng có lựa chọn phương thức thanh toán không?
-    if($select_payment == '' || $select_payment == null){
-      echo "<div align='center'>Bắt buộc phải chọn phương tức thanh toán!!!</div><br>";
-      $error = true;
     }
 
     if($error == false){

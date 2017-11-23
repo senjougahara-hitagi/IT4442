@@ -31,7 +31,7 @@ class User {
       $this->address = $row['address'];
       $this->phone_number = $row['phone_number'];
     } else {
-      echo 'Login failed.';
+      echo '<script>alert("Login Fail !!!")</script>';
     }
   }
 
