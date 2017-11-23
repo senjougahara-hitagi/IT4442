@@ -24,16 +24,24 @@
 	</head>
 
 	<body>
+		<h1 align="center" style="margin-top: 100px">Sign up</h1>
 		<form action="" method="post">
-			<p>Sign up</p>
-			<label for="username">Username: </label>
-			<input type="text" name="username" id="usr" placeholder="Enter your username">
-			<br>
-			<label for="password">Password: </label>
-			<input type="password" name="password" id="psw" placeholder="Enter your password">
-			<br>
-			<input type="submit" value="Sign up"/>
+			<table align='center'>
+				<tr>
+					<td><label for="username">Username: </label></td>
+					<td><input type="text" name="username" id="usr" placeholder="Enter your username"></td>
+				</tr>
+				<tr>
+					<td><label for="password">Password: </label></td>
+					<td><input type="password" name="password" id="psw" placeholder="Enter your password"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align='center'>
+						<input type="submit" value="Sign up" style="margin-top:5px;height: 30px;font-size: 16px;">
+						<a href="index.php"><button style="margin-top:5px;height: 30px;font-size: 16px;">Back</button></a>
+					</td>
+				</tr>
+			</table>
 		</form>
-		<a href="index.php"><button>Back</button></a>
 	</body>
 </html>

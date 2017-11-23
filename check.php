@@ -10,9 +10,9 @@
       $select_payment = $_POST['select_payment'];
 
     // Kiểm tra cú pháp email đúng không?
-    if($email != ''){
+    if($email != '') {
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<div align='center'>Invalid email format!!!</div><br>";
+        echo "<script>alert(\"Invalid email format!!!\");</script>";
         $error = true;
       }
     }
@@ -33,32 +33,21 @@
     $ngay_phat_hanh = $_POST['ngay_phat_hanh'];
     $bank_name = $_POST['bank_name'];
 
-    // Kiểm tra xem người dùng nhập tên chủ thẻ không?
-    if($name == ''){
-      echo "<div align='center'>Tên chủ thẻ bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    }
-    // Kiểm tra xem người dùng nhập mã thẻ không?
-    if($ma_the == ''){
-      echo "<div align='center'>Mã thẻ bắt buộc phải nhập!!!</div><br>";
-      $error = true;
-    } else {
-      // Kiểm tra độ dài mã thẻ đúng không?
+    // Kiểm tra độ dài mã thẻ đúng không?
+    if($ma_the != ''){
       if(strlen($ma_the) != 16){
-        echo "<div align='center'>Mã thẻ lỗi!!!</div><br>";
+        echo "<script>alert(\"Mã thẻ lỗi!!!\");</script>";
         $error = true;
       }
     }
     // Kiểm tra xem người dùng nhập ngày phát hành không?
-    if($ngay_phat_hanh == ''){
-      echo "<div align='center'>Ngày phát hành buộc phải nhập!!!</div><br>";
-      $error = true;
-    } else {
-    }
-    // Kiểm tra xem người dùng chọn tên ngân hàng không?
-    if($bank_name == ''){
-      echo "<div align='center'>Bắt buộc phải chọn một ngân hàng!!!</div><br>";
-      $error = true;
+    if($ngay_phat_hanh != ''){
+      $today = date("Y-m-d");
+      if(strtotime($today) < strtotime($ngay_phat_hanh) ||
+         strtotime($ngay_phat_hanh) < date_sub(date_create($today), date_interval_create_from_date_string("3650 days"))){
+        echo "<script>alert(\"Ngày phát hành không phù hợp !!!\");</script>";
+        $error = true;
+      }
     }
 
     if($error == false){

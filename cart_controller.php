@@ -78,7 +78,7 @@
                     </td>
                   </form>
                   <td>
-                    <form action=\"cart.php\" method=\"post\">
+                    <form action=\"cart_controller.php\" method=\"post\">
                       <input name=\"id\" value=\"{$value['item_id']}\" type='hidden'>
                       <input class=\"remove action\" type=\"submit\" name=\"submit\" value=\"Remove\">
                     </form>
