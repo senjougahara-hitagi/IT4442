@@ -64,11 +64,24 @@
   </head>
   <body>
     <br />
-    <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
-    <input type="input_search" name="input_search_products" style="margin-top:5px;height: 30px;font-size: 16px;"/>
-    <a href="cart_controller.php"><input type="submit" name="go_to_cart" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="My cart" /></a>
 
-    <?php include("login_controller.php"); ?>
+    <?php
+    if(isset($_SESSION['user'])){
+      echo '<h2>Xin chào ' . $_SESSION['user']['full_name'] . '</h2>';
+    } ?>
+
+    <div align='center'>
+
+      <a href="cart_controller.php"><input type="submit" name="go_to_cart" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="My cart" /></a>
+
+      <?php include("login_controller.php"); ?>
+
+      <form action="index.php" method="post">
+        <input type="input_search" name="input_search_products" style="margin-top:5px;height: 30px;font-size: 16px;"/>
+        <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
+      </form>
+
+    </div>
 
     <div class="container" style="width:700px;">
       <h3 align="center" style="font-size: 60px">Shop Products</h3><br />
