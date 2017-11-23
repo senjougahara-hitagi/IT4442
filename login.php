@@ -22,15 +22,33 @@
   </head>
 
   <body>
-    <div class="container">
-    <form action="" method="post">
-    	<label for="username">Username: </label>
-    	<input type="text" name="username" id="usr" placeholder="Enter your username">
-    	<br>
-    	<label for="password">Password: </label>
-    	<input type="password" name="password" id="psw" placeholder="Enter your password">
-    	<br>
-    	<button type="submit" class="button">Login</button>
-    </form>
+    <h1 align="center" style="margin-top: 100px">Login</h1>
+    <div class="container" align='center'>
+      <form action="" method="post">
+        <table>
+          <tr>
+            <td>
+              <label for="username">Username: </label>
+            </td>
+          	<td>
+              <input type="text" name="username" id="usr" placeholder="Enter your username">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password">Password: </label>
+            </td>
+            <td>
+              <input type="password" name="password" id="psw" placeholder="Enter your password">
+            </td>
+          </tr>
+        	<tr>
+        	  <td colspan="2" align="center">
+        	    <button type="submit" style="margin-top:5px;height: 30px;font-size: 16px;" class="button">Login</button>
+        	  </td>
+        	</tr>
+        </table>
+      </form>
+    </div>
   </body>
 </html>
