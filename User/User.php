@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/ConnectionDB/ConnectionDB.php';
+include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
 class User {
   private $username;
   private $password;

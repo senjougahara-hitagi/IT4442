@@ -1,5 +1,5 @@
 <?php
-	include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/ConnectionDB/ConnectionDB.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
 
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
   	$username = $_POST['username'];

@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/User/User.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/User/User.php';
     session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){

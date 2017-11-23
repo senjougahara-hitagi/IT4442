@@ -9,7 +9,7 @@
     <h2 align="center">Cart</h2>
     <table align="center" width="600px" border="1px">
       <?php
-        include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/Cart/Cart.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
 
         $cart = new Cart();
 

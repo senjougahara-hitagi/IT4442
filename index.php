@@ -1,7 +1,7 @@
 <!-- Hiển thị giao diện danh mục hàng hóa -->
 <?php
-  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/ConnectionDB/ConnectionDB.php';
-  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/sp_20171/config/Cart/Cart.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
 
   $cart = new Cart();
 
