@@ -32,6 +32,9 @@
       <form action="search.php" method="GET">
         <input type="text" name="query" style="margin-top:5px;height: 30px;font-size: 16px;"/>
         <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
+        <a href="index.php">
+          <input type="button" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Back"/>
+        </a>
       </form>
 
     </div>
@@ -43,33 +46,33 @@
     include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
     //include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/index.php';
     //$result = mysqli_query(ConnectionDB::getConnection(), $query);
-    $query = $_GET[ 'query']; 
+    $query = $_GET[ 'query'];
     // gets value sent over search form
-     
+
     $min_length = 1;
     // you can set minimum length of the query if you want
-     
+
     if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-         
-        //$query = htmlspecialchars($query); 
+
+        //$query = htmlspecialchars($query);
         // changes characters used in html to their equivalents, for example: < to &gt;
-         
+
         //$query = mysql_real_escape_string($query);
         // makes sure nobody uses SQL injection
-         
+
         $raw_results = mysqli_query(ConnectionDB::getConnection(), "SELECT * FROM product
             WHERE (`name` LIKE '%".$query."%')");
         //print_r($raw_results);
-             
+
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
         // articles is the name of our table
-         
+
         // '%$query%' is what we're looking for, % means anything, for example if $query is Hello
         // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
         // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
-         
+
         if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-             
+
             while($row = mysqli_fetch_array($raw_results)){
             ?>
       <div class="col-md-4">
@@ -87,12 +90,12 @@
       </div>
       <?php
           }
-             
+
         }
         else{ // if there is no matching rows do following
             echo "No results";
         }
-         
+
     }
     else{ // if query length is less than minimum
         echo "Minimum length is ".$min_length;
