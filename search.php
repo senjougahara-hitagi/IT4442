@@ -10,7 +10,10 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <?php include("view/header.php"); ?>
+    <?php
+    session_start();
+    include("view/header.php");
+    ?>
 
     <div class="container" style="width:700px;">
       <h3 align="center" style="font-size: 60px">Shop Products</h3><br />

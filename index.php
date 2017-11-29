@@ -3,6 +3,7 @@
   include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/User/User.php';
 
+  session_start();
   // session_unset();
 ?>
 <!DOCTYPE html>
