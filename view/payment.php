@@ -12,11 +12,11 @@
     <?php
       // Biến $card để lưu trữ trạng thái khi người dùng chọn thanh toán bằng thẻ
       $card = false;
-      include("check.php");
+      include("check_payment.php");
       if($card == false)
-        include("view/form_input_info.php");
+        include("form_input_info.php");
       else {
-        include("view/form_input_card.php");
+        include("form_input_card.php");
       }
     ?>
 

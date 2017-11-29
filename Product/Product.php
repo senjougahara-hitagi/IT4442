@@ -9,7 +9,7 @@ class ClassName
   private $price;
   function __construct(argument)
   {
-    
+
   }
 }
  ?>

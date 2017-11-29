@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
+    <script src="main.js"></script>
   </head>
   <body>
     <?php include("view/header.php"); ?>
@@ -41,21 +42,23 @@
         $result = mysqli_query(ConnectionDB::getConnection(), $query);
         if(mysqli_num_rows($result) > 0) {
           while($row = mysqli_fetch_array($result)) {
-      ?>
-      <div class="col-md-4">
-        <form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
-          <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; float: left;" align="center">
-            <img src="img/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-            <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-            <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
-            <input type="hidden" name="name" value="<?php echo $row["name"]; ?>" />
-            <input type="hidden" name="price" value="<?php echo $row["price"]; ?>" />
-            <input type="hidden" name="quantity" value='1'/>
-            <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
-          </div>
-        </form>
-      </div>
-      <?php
+            ?>
+            <div class="col-md-6 ">
+              <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; float: left;" align="center">
+                <img src="img/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
+                <h4 class="text-info"><?php echo $row["name"]; ?></h4>
+                <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
+                <input type="button"
+                       data-id = "<?php echo $row["id"]; ?>"
+                       data-name = "<?php echo $row["name"]; ?>"
+                       data-price = "<?php echo $row["price"]; ?>"
+                       data-quantity = "1"
+                       style="margin-top:5px;"
+                       class="btn btn-success"
+                       value="Add to Cart" />
+              </div>
+            </div>
+            <?php
           }
         }
       ?>

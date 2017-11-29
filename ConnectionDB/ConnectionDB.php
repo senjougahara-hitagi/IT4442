@@ -8,10 +8,7 @@ class ConnectionDB {
 
   public static function getConnection() {
     if (!isset(self::$instance)) {
-      $dbhost = "localhost";
-      $dbuser = "root";
-      $dbpass = "";
-      $dbname = "sp_20171";
+      include 'config.php';
 
       self::$instance = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
     }

@@ -100,7 +100,7 @@
         if(isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0) {
           echo "<tr>
              <td colspan='5' align='center'>
-               <a href='payment.php'>
+               <a href='view/payment.php'>
                  <button type='button'>
                    Tiến hành thanh toán
                  </button>
