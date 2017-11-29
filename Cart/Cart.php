@@ -6,7 +6,6 @@ class Cart
   public $items = array();
 
   function __construct() {
-      session_start();
       if(isset($_SESSION['cart']))
         $this->items = $_SESSION['cart'];
   }
@@ -26,9 +25,9 @@ class Cart
 
       if($count >= count($this->items)) {
         $this->items[$count] = array('item_id'=>$id,
-                               'item_name'=>$name,
-                               'item_price'=>$price,
-                               'item_quantity'=>$quantity);
+                                     'item_name'=>$name,
+                                     'item_price'=>$price,
+                                     'item_quantity'=>$quantity);
       }
 
 

@@ -1,26 +1,22 @@
-$(".submit_btn").on("click", function(){
-  $.ajax({
-    type: 'post',
-    url: 'php/comment_controller.php',
-    data:{
-        addToComments: 'yes',
-        productId: productId,
-        comment: $("#now_comment").val()
-    },
-    success:function(response) {
-        $("#now_comment").val("");
-        $.ajax({
-            type: 'post',
-            url: 'php/comment_controller.php',
-            data:{
-                showPrevComment: 'yes',
-                productId: productId
-            },
-            success:function(response) {
-                $('#prev_comment_header').text("Nhận xét (có )");
-                $('#prev_comment').html(response);
-            }
-        });
-    }
+$(document).ready(function(){
+  $('body').on('click', '.buy_btn', function(){
+    var productId       = $(this).attr('data-id');
+    var productQuantity = $(this).attr('data-quantity');
+    var productName     = $(this).attr('data-name');
+    var productPrice    = $(this).attr('data-price');
+    $.ajax({
+      type: 'post',
+      url: 'Cart/CartController.php',
+      data:{
+          addToCart: 'yes',
+          id: productId,
+          name: productName,
+          price: productPrice,
+          quantity: productQuantity
+      },
+      success:function(response) {
+          alert(productQuantity + " " + productName + " has been added !!!");
+      }
+    });
   });
 });

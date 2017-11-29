@@ -3,46 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Cart</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h2 align="center">Cart</h2>
     <table align="center" width="600px" border="1px">
       <?php
-        include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
-
-        $cart = new Cart();
-
+        session_start();
         // session_unset();
-
-        $Id = -1;
-        $Name = NULL;
-        $Price = NULL;
-        $Quantity = NULL;
-
-        if($_POST){
-          $Id = $_POST["id"];
-          if($_POST["submit"] == "Edit"){
-            $Quantity = $_POST["quantity"];
-
-            // for($i = 0; $i < count($_SESSION["cart"]); $i++) {
-            //   if($_SESSION["cart"][$i]['item_id'] == $Id){
-            //     if($Quantity == 0 || $Quantity == "") {
-            //       unset($_SESSION["cart"][$i]);
-            //       $_SESSION["cart"] = array_values($_SESSION["cart"]);
-            //     } else {
-            //       $_SESSION["cart"][$i] = $Products[$i];
-            //     }
-            //     break;
-            //   }
-            // }
-
-            $cart->edit($Id, $Quantity);
-          }
-          if($_POST["submit"] == "Remove"){
-              $cart->delete($Id);
-          }
-        }
 
         $Products = array();
         if(isset($_SESSION["cart"])) {
@@ -68,7 +35,7 @@
           echo" <tr>
                   <td>{$value['item_name']}</td>
                   <td>{$value['item_price']}</td>
-                  <form action=\"cart_controller.php\" method=\"post\">
+                  <form action=\"Cart/CartController.php\" method=\"post\">
                     <td>
                       <input name='quantity' value='{$value['item_quantity']}'>
                       <input name='id' value='{$value['item_id']}' type='hidden'>
@@ -78,7 +45,7 @@
                     </td>
                   </form>
                   <td>
-                    <form action=\"cart_controller.php\" method=\"post\">
+                    <form action=\"Cart/CartController.php\" method=\"post\">
                       <input name=\"id\" value=\"{$value['item_id']}\" type='hidden'>
                       <input class=\"remove action\" type=\"submit\" name=\"submit\" value=\"Remove\">
                     </form>

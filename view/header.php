@@ -4,7 +4,10 @@
   }
 ?>
   <div align='center'>
-    <a href="cart_controller.php">
+    <a href="index.php">
+      <input type="button" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Home"/>
+    </a>
+    <a href="cart.php">
       <input type="submit"
              name="go_to_cart"
              style="margin-top:5px;height: 30px;font-size: 16px;"

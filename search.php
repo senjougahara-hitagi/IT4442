@@ -7,37 +7,10 @@
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
+    <script src="main.js"></script>
   </head>
   <body>
-    <br />
-
-    <?php
-    if(isset($_SESSION['user'])){
-      echo '<h2>Xin chào ' . $_SESSION['user']['full_name'] . '</h2>';
-
-      if(!isset($_SESSION['user']['full_name']) ||
-         !isset($_SESSION['user']['sex']) ||
-         !isset($_SESSION['user']['email']) ||
-         !isset($_SESSION['user']['address']) ||
-         !isset($_SESSION['user']['phone_number']))
-        echo '<h3>Bạn chưa update profile, làm ơn hãy update để chúng tôi có thể phục vụ bạn tốt nhất !!!</h3>';
-    } ?>
-
-    <div align='center'>
-
-      <a href="cart_controller.php"><input type="submit" name="go_to_cart" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="My cart" /></a>
-
-      <?php include("header.php"); ?>
-
-      <form action="search.php" method="GET">
-        <input type="text" name="query" style="margin-top:5px;height: 30px;font-size: 16px;"/>
-        <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
-        <a href="index.php">
-          <input type="button" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Back"/>
-        </a>
-      </form>
-
-    </div>
+    <?php include("view/header.php"); ?>
 
     <div class="container" style="width:700px;">
       <h3 align="center" style="font-size: 60px">Shop Products</h3><br />
@@ -75,18 +48,19 @@
 
             while($row = mysqli_fetch_array($raw_results)){
             ?>
-      <div class="col-md-4">
-        <form method="post" action="index.php?action=add&id=<?php echo $row["id"]; ?>">
-          <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; float: left;" align="center">
-            <img src="img/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-            <h4 class="text-info"><?php echo $row["name"]; ?></h4>
-            <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
-            <input type="hidden" name="name" value="<?php echo $row["name"]; ?>" />
-            <input type="hidden" name="price" value="<?php echo $row["price"]; ?>" />
-            <input type="hidden" name="quantity" value='1'/>
-            <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />
-          </div>
-        </form>
+      <div class="col-md-6">
+        <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; float: left;" align="center">
+          <img src="img/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
+          <h4 class="text-info"><?php echo $row["name"]; ?></h4>
+          <h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>
+          <button data-id = "<?php echo $row["id"]; ?>"
+                  data-name = "<?php echo $row["name"]; ?>"
+                  data-price = "<?php echo $row["price"]; ?>"
+                  data-quantity = "1"
+                  style="margin-top:5px;"
+                  class="btn btn-success buy_btn">Add to Cart
+          </button>
+        </div>
       </div>
       <?php
           }
