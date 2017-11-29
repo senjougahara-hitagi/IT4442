@@ -2,10 +2,10 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 04, 2017 at 02:26 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 29, 2017 lúc 12:58 PM
+-- Phiên bản máy phục vụ: 10.1.26-MariaDB
+-- Phiên bản PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sp_20171`
+-- Cơ sở dữ liệu: `sp_20171`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -36,17 +36,25 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `image`, `price`) VALUES
-(1, 'Xiaomi Redmi Note 4', 'xiaomi_redmi_note_4.jpg', 4450000),
-(2, 'Xiaomi Redmi Note 5A', 'xiaomi_redmi_note_5A.jpg', 3250000);
+(1, 'áo khoác bomber xám', 'ao_khoac_bomber(1).jpg', 240000),
+(2, 'ao_khoac_du_nam', 'ao_khoac_du_nam.jpg', 209000),
+(3, 'áo khoác bomber đen', 'ao_khoac_bomber (2).jpg', 160000),
+(4, 'ao_khoac_nam_akuba', 'ao_khoac_nam_akuba.jpg', 520000),
+(5, 'áo sơ mi dài tay', 'ao_so_mi_dai_tay.jpg', 175000),
+(6, 'áo sơ mi ngắn tay caro akuba', 'ao_so_mi_ngan_tay_caro_akuba.jpg', 290000),
+(7, 'áo thun nam alex', 'ao_thun_nam_alex.jpg', 148000),
+(8, 'áo thun nam jackies xanh thẫm', 'ao_thun_nam_jackies.jpg', 230000),
+(9, 'áo thun nam jackies xám', 'ao_thun_nam_jackies_2.jpg', 250000),
+(10, 'quần tây nam công sở Vũ Tuấn', 'quan_tay_nam_cong_so_vu_tuan.jpg', 365000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -56,7 +64,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
@@ -64,70 +72,77 @@ INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
 (4, 'hklbndvl', 'ducprocf1'),
 (5, 'tuanml', 'tuanml'),
 (6, 'testuserlmao', 'lmaoxd'),
-(7, 'lmduc', '123456');
+(7, 'lmduc', '123456'),
+(9, 'shiro', '123');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_info`
+-- Cấu trúc bảng cho bảng `user_info`
 --
 
 CREATE TABLE `user_info` (
   `user_id` int(11) NOT NULL,
-  `full_name` varchar(30) NOT NULL,
-  `sex` varchar(10) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `address` varchar(40) NOT NULL,
-  `phone_number` int(20) NOT NULL
+  `full_name` varchar(30) DEFAULT NULL,
+  `sex` varchar(10) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `address` varchar(40) DEFAULT NULL,
+  `phone_number` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_info`
+-- Đang đổ dữ liệu cho bảng `user_info`
 --
 
 INSERT INTO `user_info` (`user_id`, `full_name`, `sex`, `email`, `address`, `phone_number`) VALUES
 (4, 'Duc', 'Male', 'pmduc@mail.com', 'lolxd', 1023024824),
 (6, 'lmao guy', 'Female', 'lmaoxd@lmail.com', 'lmaostreet', 2147483647),
-(7, 'Lee Mink Duk', 'Male', 'lmduk@gmail.com', 'HN', 1234956705);
+(7, 'Lee Mink Duk', 'Male', 'lmduk@gmail.com', 'HN', 1234956705),
+(9, 'Shiraori', 'Female', 'shiro@gmail.com', 'Issekai', 1234567);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `USERNAME` (`username`);
 
 --
--- Indexes for table `user_info`
+-- Chỉ mục cho bảng `user_info`
 --
 ALTER TABLE `user_info`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `user_info`
+-- Các ràng buộc cho bảng `user_info`
 --
 ALTER TABLE `user_info`
   ADD CONSTRAINT `user_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);

@@ -93,7 +93,7 @@
 										style="margin-top:5px;height: 30px;font-size: 16px;"
 										class="btn btn-primary">Update
 						</button>
-						<a href="index.php">
+						<a href="../index.php">
 							<input type="button" value="Back" style="margin-top:5px;height: 30px;font-size: 16px;">
 						</a>
 					</td>

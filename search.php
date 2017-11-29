@@ -13,10 +13,14 @@
     <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/User/User.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
     session_start();
     include("view/header.php");
+    ?>
 
+    <div class="container" style="width:700px;">
+      <h3 align="center" style="font-size: 60px">Shop Products</h3><br/>
+
+    <?php
     //$result = mysqli_query(ConnectionDB::getConnection(), $query);
     $query = $_GET[ 'query'];
     // gets value sent over search form
@@ -32,8 +36,9 @@
         //$query = mysql_real_escape_string($query);
         // makes sure nobody uses SQL injection
 
-        $raw_results = mysqli_query(ConnectionDB::getConnection(), "SELECT * FROM product
-            WHERE (`name` LIKE '%".$query."%')");
+        $raw_results = mysqli_query(ConnectionDB::getConnection(), "SELECT *
+                                                                    FROM product
+                                                                    WHERE (`name` LIKE '%".$query."%')");
         //print_r($raw_results);
 
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
@@ -46,8 +51,6 @@
         if(mysqli_num_rows($raw_results) > 0) { // if one or more rows are returned do following
             while($row = mysqli_fetch_array($raw_results)){
     ?>
-            <div class="container" style="width:700px;">
-              <h3 align="center" style="font-size: 60px">Shop Products</h3><br/>
               <div class="col-md-6">
                 <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; float: left;" align="center">
                   <img src="img/<?php echo $row["image"]; ?>" class="img-responsive" /><br />
@@ -71,6 +74,6 @@
         echo "Minimum length is ".$min_length;
     }
     ?>
-            </div><br/>
+    </div><br/>
   </body>
 </html>
