@@ -15,6 +15,10 @@
 					<td><input type="password" name="password" id="psw" placeholder="Enter your password"></td>
 				</tr>
 				<tr>
+					<td><label for="password">Re-Password: </label></td>
+					<td><input type="password" name="re_password" placeholder="Re-enter your password"></td>
+				</tr>
+				<tr>
 					<td colspan="2" align='center'>
 						<button type="submit"
 										name="user_action"

@@ -9,7 +9,7 @@
         if($user->login($_POST['username'], $_POST['password'])){
           header("Location: ../index.php");
         } else {
-    			echo 'Login fail.';
+          header('Location: ../view/notification.php');
         }
         break;
 
@@ -20,10 +20,10 @@
 
       case 'signup':
         $user = new User();
-        if($user->signup($_POST['username'], $_POST['password'])) {
-          header('Location: ../index.php');
+        if($user->signup($_POST['username'], $_POST['password'], $_POST['re_password'])) {
+          header('Location: ../view/notification.php');
         } else {
-          echo 'Account existed.';
+          header('Location: ../view/notification.php');
         }
         break;
 
@@ -35,9 +35,9 @@
         $phonenum = $_POST['phonenum'];
 
         if($_SESSION['user']->setProfile($fullname, $sex, $email, $address, $phonenum)){
-          header('Location: ../index.php');
+          header('Location: ../view/notification.php');
         } else {
-          echo "Update fail.";
+          header('Location: ../view/notification.php');
         }
         break;
 

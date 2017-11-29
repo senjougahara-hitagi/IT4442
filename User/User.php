@@ -29,6 +29,7 @@ class User {
 
       return true;
     } else {
+      $_SESSION['login'] = fail;
       return false;
     }
   }
@@ -57,14 +58,21 @@ class User {
     }
   }
 
-  public function signup($username, $password) {
+  public function signup($username, $password, $re_password) {
+    if($password != $re_password || $password == '' ) {
+      $_SESSION['signup'] = "re_password_wrong";
+      return false;
+    }
+
     $sql = "SELECT * FROM user WHERE username = '$username'";
   	$result = mysqli_query(ConnectionDB::getConnection(), $sql);
 
   	if (mysqli_num_rows($result) == 0) {
   		$sql = "INSERT INTO user(username, password) VALUES ('$username', '$password')";
+      $_SESSION['signup'] = "signup_success";
 			return mysqli_query(ConnectionDB::getConnection(), $sql);
   	} else {
+      $_SESSION['signup'] = "account_existed";
   		return false;
   	}
   }
@@ -82,6 +90,11 @@ class User {
     $query = mysqli_query(ConnectionDB::getConnection(), $sql);
 
     $this->getProfile();
+    if($query)
+      $_SESSION['update'] = true;
+    else {
+      $_SESSION['update'] = false;
+    }
 		return $query;
   }
 
