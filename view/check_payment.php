@@ -27,7 +27,7 @@
 
   // Kiểm tra thẻ
   if(isset($_POST['bank'])){
-    $error = false;;
+    $error = false;
     $name = $_POST['ten_chu_the'];
     $ma_the = $_POST['ma_the'];
     $ngay_phat_hanh = $_POST['ngay_phat_hanh'];
@@ -43,15 +43,17 @@
     // Kiểm tra xem người dùng nhập ngày phát hành không?
     if($ngay_phat_hanh != ''){
       $today = date("Y-m-d");
+
       if(strtotime($today) < strtotime($ngay_phat_hanh) ||
-         strtotime($ngay_phat_hanh) < date_sub(date_create($today), date_interval_create_from_date_string("3650 days"))){
+         strtotime($ngay_phat_hanh) < strtotime('-10 year', strtotime($today))){
         echo "<script>alert(\"Ngày phát hành không phù hợp !!!\");</script>";
         $error = true;
       }
     }
 
     if($error == false){
-      echo "<script>alert(\"Đặt hàng thành công\");</script>";
+      echo "<script>alert(\"Đặt hàng thành công !!!\");</script>";
+      header("Location: ../index.php");
     } else {
       $card = true;
     }

@@ -62,6 +62,7 @@ class Cart
   }
 
   public function get(){
+    return $this->items;
   }
 }
  ?>

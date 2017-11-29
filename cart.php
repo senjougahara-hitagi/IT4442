@@ -8,21 +8,12 @@
     <h2 align="center">Cart</h2>
     <table align="center" width="600px" border="1px">
       <?php
+        include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
         session_start();
         // session_unset();
 
-        $Products = array();
-        if(isset($_SESSION["cart"])) {
-          $array = $_SESSION["cart"];
-          foreach ($array as $value) {
-            $Products[] = array(
-              'item_id' => $value['item_id'],
-              'item_name' => $value['item_name'],
-              'item_price' => $value['item_price'],
-              'item_quantity' => $value['item_quantity']
-            );
-          }
-        }
+        $cart = new Cart();
+        $Products = $cart->get();
        ?>
       <tr>
         <td>Name</td>
