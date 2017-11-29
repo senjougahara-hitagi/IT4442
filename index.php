@@ -1,7 +1,8 @@
 <!-- Hiển thị giao diện danh mục hàng hóa -->
 <?php
-  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
-  include $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/ConnectionDB/ConnectionDB.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/User/User.php';
 
   $cart = new Cart();
 
@@ -14,38 +15,6 @@
     $quantity = $_POST['quantity'];
 
     $cart->add($id, $name, $price, $quantity);
-
-    // if(isset($_SESSION["cart"])) {
-    //   $item_array_id = array_column($_SESSION["cart"], "item_id");
-    //   $count = count($_SESSION["cart"]);
-    //   if(!in_array($id, $item_array_id)) {
-    //     $item_array = array(
-    //       'item_id' => $id,
-    //       'item_name' => $name,
-    //       'item_price' => $price,
-    //       'item_quantity' => $quantity
-    //     );
-    //     $_SESSION["cart"][$count] = $item_array;
-    //
-    //   } else {
-    //     for($i = 0; $i < $count; $i++){
-    //       if($id == $item_array_id[$i]){
-    //         $_SESSION["cart"][$i]['item_quantity'] += 1;
-    //         break;
-    //       }
-    //     }
-    //   }
-    // } else {
-    //   $item_array = array (
-    //     'item_id' => $id,
-    //     'item_name' => $name,
-    //     'item_price' => $price,
-    //     'item_quantity' => $quantity
-    //   );
-    //   $_SESSION["cart"][0] = $item_array;
-    //
-    //
-    // }
 
     echo '<script>alert("'.$quantity.' '.$name.' added")</script>';
     // echo '<script>window.location="index.php"</script>';
@@ -63,32 +32,7 @@
     <script src="lib/bootstrap.min.js"></script>
   </head>
   <body>
-    <br />
-
-    <?php
-    if(isset($_SESSION['user'])){
-      echo '<h2>Xin chào ' . $_SESSION['user']['full_name'] . '</h2>';
-
-      if(!isset($_SESSION['user']['full_name']) ||
-         !isset($_SESSION['user']['sex']) ||
-         !isset($_SESSION['user']['email']) ||
-         !isset($_SESSION['user']['address']) ||
-         !isset($_SESSION['user']['phone_number']))
-        echo '<h3>Bạn chưa update profile, làm ơn hãy update để chúng tôi có thể phục vụ bạn tốt nhất !!!</h3>';
-    } ?>
-
-    <div align='center'>
-
-      <a href="cart_controller.php"><input type="submit" name="go_to_cart" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="My cart" /></a>
-
-      <?php include("header.php"); ?>
-
-      <form action="search.php" method="GET">
-        <input type="text" name="query" style="margin-top:5px;height: 30px;font-size: 16px;"/>
-        <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
-      </form>
-
-    </div>
+    <?php include("view/header.php"); ?>
 
     <div class="container" style="width:700px;">
       <h3 align="center" style="font-size: 60px">Shop Products</h3><br />
@@ -115,7 +59,6 @@
           }
         }
       ?>
-      <div style="clear:both"></div>
     </div>
     <br />
   </body>

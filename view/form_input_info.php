@@ -16,7 +16,9 @@
        <input type="text"
               style='width:400px'
               name='ten_nguoi_mua'
-              value='<?php echo (isset($_SESSION['user']['full_name'])) ? $_SESSION['user']['full_name'] : ''; ?>'
+              value="<?php echo (isset($_SESSION['user']) && $_SESSION['user']->getFullname() != null)
+                                 ? $_SESSION['user']->getFullname()
+                                 : ''; ?>"
               required>
      </td>
    </tr>
@@ -26,14 +28,19 @@
        <input type='text'
               style='width:400px'
               name='email'
-              value="<?php echo (isset($_SESSION['user']['email'])) ? $_SESSION['user']['email'] : ''; ?>"
+              value='<?php echo (isset($_SESSION['user']) && $_SESSION['user']->getEmail() != null)
+                          ? $_SESSION['user']->getEmail()
+                          : ''; ?>'
               required>
      </td>
    </tr>
    <tr>
      <td>Địa chỉ : </td>
      <td>
-       <textarea style='width:400px' name='dia_chi' required><?php echo (isset($_SESSION['user']['address'])) ? $_SESSION['user']['address'] : ''; ?></textarea>
+       <textarea style='width:400px' name='dia_chi' required><?php echo (isset($_SESSION['user']) && $_SESSION['user']->getAddress() != null)
+                                                                         ? $_SESSION['user']->getAddress()
+                                                                         : ''; ?>
+       </textarea>
      </td>
    </tr>
    <tr>
@@ -42,7 +49,9 @@
        <input type='number'
               style='width:400px'
               name='dien_thoai'
-              value="<?php echo (isset($_SESSION['user']['phone_number'])) ? $_SESSION['user']['phone_number'] : ''; ?>"
+              value="<?php echo (isset($_SESSION['user']) && $_SESSION['user']->getPhoneNumber() != null)
+                          ? $_SESSION['user']->getPhoneNumber()
+                          : ''; ?>"
               required>
      </td>
    </tr>
