@@ -76,7 +76,9 @@
                 <li>
                   <?php
                     if(isset($_SESSION['user'])){
-                      echo '<h2 id="username">Xin chào ' . $_SESSION['user']->getFullname() . '</h2>';
+                      echo '<a href="view/profile.php">
+								<h2 id="username">Xin chào ' . $_SESSION['user']->getFullname() . '</h2>
+							</a>';
                     }
                   ?>
                 </li>
