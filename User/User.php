@@ -59,7 +59,7 @@ class User {
   }
 
   public function signup($username, $password, $re_password) {
-    if($password != $re_password || $password == '' ) {
+    if($password != $re_password || strlen($password) < 6 ) {
       $_SESSION['signup'] = "re_password_wrong";
       return false;
     }

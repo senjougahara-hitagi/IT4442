@@ -39,8 +39,7 @@
      <td>
        <textarea style='width:400px' name='dia_chi' required><?php echo (isset($_SESSION['user']) && $_SESSION['user']->getAddress() != null)
                                                                          ? $_SESSION['user']->getAddress()
-                                                                         : ''; ?>
-       </textarea>
+                                                                         : ''; ?></textarea>
      </td>
    </tr>
    <tr>
