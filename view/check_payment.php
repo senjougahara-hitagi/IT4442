@@ -18,8 +18,10 @@
     }
 
     if($error == false){
-      if($select_payment == 'deliver')
-        echo "<script>alert(\"Đặt hàng thành công\");</script>";
+      if($select_payment == 'deliver'){
+        $_SESSION['oder_success'] = true;
+        header("Location: ../index.php");
+      }
       if($select_payment == 'card')
         $card = true;
     }
@@ -52,7 +54,7 @@
     }
 
     if($error == false){
-      echo "<script>alert(\"Đặt hàng thành công !!!\");</script>";
+      $_SESSION['oder_success'] = true;
       header("Location: ../index.php");
     } else {
       $card = true;
