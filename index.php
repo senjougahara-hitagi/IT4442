@@ -13,10 +13,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="lib/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="lib/main.css">
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <script src="lib/main.js"></script>
   </head>
   <body>
     <?php
