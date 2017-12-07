@@ -80,7 +80,7 @@ class User {
   public function setProfile($full_name, $sex, $email, $address, $phone_number) {
     if($this->getProfile()) {
       $sql = "UPDATE user_info
-              SET full_name = '$full_name', sex = '$sex', email = '$email', address = '$address', phone_number = '$phone_number'
+              SET full_name = \"$full_name\", sex = '$sex', email = '$email', address = '$address', phone_number = '$phone_number'
               WHERE user_id = '$this->user_id'";
     } else {
       $sql = "INSERT INTO user_info(user_id, full_name, sex, email, address, phone_number)

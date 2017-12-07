@@ -20,11 +20,8 @@
 
       case 'signup':
         $user = new User();
-        if($user->signup($_POST['username'], $_POST['password'], $_POST['re_password'])) {
-          header('Location: ../view/notification.php');
-        } else {
-          header('Location: ../view/notification.php');
-        }
+        $user->signup($_POST['username'], $_POST['password'], $_POST['re_password']);
+        header('Location: ../view/notification.php');
         break;
 
       case 'profile':
@@ -34,11 +31,8 @@
         $address = $_POST['address'];
         $phonenum = $_POST['phonenum'];
 
-        if($_SESSION['user']->setProfile($fullname, $sex, $email, $address, $phonenum)){
-          header('Location: ../view/notification.php');
-        } else {
-          header('Location: ../view/notification.php');
-        }
+        $_SESSION['user']->setProfile($fullname, $sex, $email, $address, $phonenum);
+        header('Location: ../view/notification.php');
         break;
 
       default:

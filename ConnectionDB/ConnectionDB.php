@@ -11,6 +11,7 @@ class ConnectionDB {
       include 'config.php';
 
       self::$instance = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+      mysqli_query(self::$instance, "SET NAMES 'utf8'");
     }
     return self::$instance;
   }

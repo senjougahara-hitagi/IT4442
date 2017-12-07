@@ -19,11 +19,11 @@
 
     if($error == false){
       if($select_payment == 'deliver'){
-        $_SESSION['oder_success'] = true;
-        header("Location: ../index.php");
+        $_SESSION['order_success'] = true;
+        header("Location: index.php");
       }
       if($select_payment == 'card')
-        $card = true;
+        $payment_method = 'card';
     }
   }
 
@@ -54,10 +54,10 @@
     }
 
     if($error == false){
-      $_SESSION['oder_success'] = true;
-      header("Location: ../index.php");
+      $_SESSION['order_success'] = true;
+      header("Location: index.php");
     } else {
-      $card = true;
+      $payment_method = 'card';
     }
   }
  ?>

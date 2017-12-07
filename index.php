@@ -21,9 +21,9 @@
   <body>
     <?php
       include("view/header.php");
-      if(isset($_SESSION['oder_success'])){
+      if(isset($_SESSION['order_success'])){
         unset($_SESSION['cart']);
-        unset($_SESSION['oder_success']);
+        unset($_SESSION['order_success']);
         echo "<script>alert(\"Đặt hàng thành công\");</script>";
       }
     ?>

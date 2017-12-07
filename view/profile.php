@@ -18,9 +18,9 @@
 						<input type="text"
 									 name="fullname"
 									 id="fln"
-									 value='<?php echo (isset($_SESSION['user']) && $_SESSION['user']->getFullname() != null)
+									 value="<?php echo (isset($_SESSION['user']) && $_SESSION['user']->getFullname() != null)
 									 										? $_SESSION['user']->getFullname()
-																			: ''; ?>'
+																			: ''; ?>"
 									 required>
 					</td>
 				</tr>

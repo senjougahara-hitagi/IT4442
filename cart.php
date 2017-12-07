@@ -8,18 +8,19 @@
     <title>Cart</title>
   </head>
   <body>
-    <?php include("view/header.php"); ?>
+    <?php
+    include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/User/User.php';
+    session_start();
+    // session_unset();
+    include("view/header.php");
+
+    $cart = new Cart();
+    $Products = $cart->get();?>
+
     <div class="content">
       <h2 align="center">Cart</h2>
       <table align="center" width="600px" border="1px">
-        <?php
-          include_once $_SERVER['DOCUMENT_ROOT'].'/IT4442/it4442/Cart/Cart.php';
-          session_start();
-          // session_unset();
-
-          $cart = new Cart();
-          $Products = $cart->get();
-         ?>
         <tr>
           <td>Name</td>
           <td>Price</td>
@@ -63,7 +64,7 @@
           if(isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0) {
             echo "<tr>
                <td colspan='5' align='center'>
-                 <a href='view/payment.php'>
+                 <a href='payment.php'>
                    <button type='button'>
                      Tiến hành thanh toán
                    </button>

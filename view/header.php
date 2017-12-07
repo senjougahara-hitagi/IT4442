@@ -68,7 +68,7 @@
                     }
                 ?>
                 <li>
-                  <form action="search.php" method="GET">
+                  <form action="index.php" method="GET">
                     <input type="text" name="query" style="margin-top:5px;height: 30px;font-size: 16px;"/>
                     <input type="submit" name="search_products" style="margin-top:5px;height: 30px;font-size: 16px;" class="btn btn-success" value="Search" />
                   </form>
@@ -77,8 +77,8 @@
                   <?php
                     if(isset($_SESSION['user'])){
                       echo '<a href="view/profile.php">
-								<h2 id="username">Xin chào ' . $_SESSION['user']->getFullname() . '</h2>
-							</a>';
+              								<h2 id="username">Xin chào ' . $_SESSION['user']->getFullname() . '</h2>
+              							</a>';
                     }
                   ?>
                 </li>
